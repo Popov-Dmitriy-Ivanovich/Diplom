@@ -1,0 +1,1 @@
+CREATE DATABASE diplom WITH OWNER = habrpguser;
