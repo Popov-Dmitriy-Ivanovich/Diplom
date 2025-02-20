@@ -115,17 +115,33 @@ services:
             - redis-network
         ports:
             - "8080:8080"
-
+    diplom_auth:
+        restart: always
+        depends_on:
+            postgres:
+                condition: service_healthy
+        build: Diplom_auth
+        env_file:
+            - Diplom_auth/.env
+        networks:
+            - postgres
+            - diplom_auth
+            - kafka-network
+            - redis-network
+        ports:
+            - "8081:8080"
     nginx:
         hostname: nginx
         depends_on:
             - diplom_cmd
+            - diplom_auth
         build: Diplom_ui
         ports:
             - "80:80"
             - "443:443"
         networks:
             - diplom_cmd
+            - diplom_auth
 
 volumes:
     habrdb-data:
@@ -139,4 +155,6 @@ networks:
     kafka-network:
         driver: bridge
     redis-network:
+        driver: bridge
+    diplom_auth:
         driver: bridge

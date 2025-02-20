@@ -1,12 +1,12 @@
 [submodule "Diplom_linux_driver"]
 	path = Diplom_linux_driver
-	url = git@github.com:Popov-Dmitriy-Ivanovich/Diplom_linux_driver.git
+	url = https://github.com/Popov-Dmitriy-Ivanovich/Diplom_linux_driver.git
 [submodule "Diplom_ui"]
 	path = Diplom_ui
-	url = git@github.com:Popov-Dmitriy-Ivanovich/Diplom_ui.git
+	url = https://github.com/Popov-Dmitriy-Ivanovich/Diplom_ui.git
 [submodule "Diplom_cmd"]
 	path = Diplom_cmd
-	url = git@github.com:Popov-Dmitriy-Ivanovich/Diplom_cmd.git
+	url = https://github.com/Popov-Dmitriy-Ivanovich/Diplom_cmd.git
 [submodule "Diplom_auth"]
 	path = Diplom_auth
-	url = git@github.com:Popov-Dmitriy-Ivanovich/Diplom_auth.git
+	url = https://github.com/Popov-Dmitriy-Ivanovich/Diplom_auth.git
