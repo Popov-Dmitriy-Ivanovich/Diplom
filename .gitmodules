@@ -10,3 +10,6 @@
 [submodule "Diplom_auth"]
 	path = Diplom_auth
 	url = https://github.com/Popov-Dmitriy-Ivanovich/Diplom_auth.git
+[submodule "Diplom_telegram"]
+	path = Diplom_telegram
+	url = https://github.com/Popov-Dmitriy-Ivanovich/Diplom_telegram.git
