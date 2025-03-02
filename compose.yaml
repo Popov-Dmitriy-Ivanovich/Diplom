@@ -22,11 +22,15 @@ services:
             - zookeeper
         environment:
             - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
-            - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+            - KAFKA_LISTENERS=INTERNAL://kafka:29092,EXTERNAL://kafka:9092
+            - KAFKA_ADVERTISED_LISTENERS=INTERNAL://kafka:29092,EXTERNAL://localhost:9092
+            - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+            - KAFKA_INTER_BROKER_LISTENER_NAME=INTERNAL
         networks:
             - kafka-network
         ports:
             - "9092:9092"
+            - "29092:29092"
     postgres:
         hostname: postgres
         image: postgres:14.8-alpine3.18
@@ -130,6 +134,18 @@ services:
             - redis-network
         ports:
             - "8081:8080"
+    diplom_telegram:
+        restart: always
+        depends_on:
+            postgres:
+                condition: service_healthy
+        build: Diplom_telegram
+        env_file:
+            - Diplom_telegram/.env
+        networks:
+            - redis-network
+        # ports:
+        #     - "8081:8080"
     nginx:
         hostname: nginx
         depends_on:
