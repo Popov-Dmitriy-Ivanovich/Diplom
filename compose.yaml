@@ -110,6 +110,7 @@ services:
             postgres:
                 condition: service_healthy
         build: Diplom_cmd
+        image: popovdmitriyivanovich/diplom_cmd
         env_file:
             - Diplom_cmd/.env
         networks:
@@ -125,6 +126,7 @@ services:
             postgres:
                 condition: service_healthy
         build: Diplom_auth
+        image: popovdmitriyivanovich/diplom_auth
         env_file:
             - Diplom_auth/.env
         networks:
@@ -140,6 +142,7 @@ services:
             postgres:
                 condition: service_healthy
         build: Diplom_telegram
+        image: popovdmitriyivanovich/diplom_telegram
         env_file:
             - Diplom_telegram/.env
         networks:
@@ -152,6 +155,7 @@ services:
             - diplom_cmd
             - diplom_auth
         build: Diplom_ui
+        image: popovdmitriyivanovich/diplom_ui
         ports:
             - "80:80"
             - "443:443"
